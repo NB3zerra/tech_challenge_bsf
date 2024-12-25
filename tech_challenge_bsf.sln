@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{9AFDD73B-67B5-4AE9-9D17-85D643D9CE47}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "payment_registration_service", "services\payment_registration_service\payment_registration_service.csproj", "{B08D5ACB-7712-45D1-B419-B1FD28B32630}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "payment_processing_service", "services\payment_processing_service\payment_processing_service.csproj", "{9E3C6F78-AF4C-4893-B0AC-B06A6758BABE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B08D5ACB-7712-45D1-B419-B1FD28B32630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B08D5ACB-7712-45D1-B419-B1FD28B32630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B08D5ACB-7712-45D1-B419-B1FD28B32630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B08D5ACB-7712-45D1-B419-B1FD28B32630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E3C6F78-AF4C-4893-B0AC-B06A6758BABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E3C6F78-AF4C-4893-B0AC-B06A6758BABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E3C6F78-AF4C-4893-B0AC-B06A6758BABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E3C6F78-AF4C-4893-B0AC-B06A6758BABE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B08D5ACB-7712-45D1-B419-B1FD28B32630} = {9AFDD73B-67B5-4AE9-9D17-85D643D9CE47}
+		{9E3C6F78-AF4C-4893-B0AC-B06A6758BABE} = {9AFDD73B-67B5-4AE9-9D17-85D643D9CE47}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F614202E-4FBB-4C25-A54F-925E2C9BE2B1}
+	EndGlobalSection
+EndGlobal
