@@ -5985,6 +5985,7 @@
       "outputPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Tests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+        "/home/nwt/projects/tech_challenge_bsf/nuget.config",
         "/home/nwt/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [

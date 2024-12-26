@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.Services", "PS.Services\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.Tests", "PS.Tests\PS.Tests.csproj", "{8DA54364-A0C4-46F3-89C0-7F0EBCE10279}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PS.Messaging", "PS.Messaging\PS.Messaging.csproj", "{9245F359-3EAA-4FE1-8196-21C163709DBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{8DA54364-A0C4-46F3-89C0-7F0EBCE10279}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DA54364-A0C4-46F3-89C0-7F0EBCE10279}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DA54364-A0C4-46F3-89C0-7F0EBCE10279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9245F359-3EAA-4FE1-8196-21C163709DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9245F359-3EAA-4FE1-8196-21C163709DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9245F359-3EAA-4FE1-8196-21C163709DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9245F359-3EAA-4FE1-8196-21C163709DBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
