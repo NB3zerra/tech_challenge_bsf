@@ -1,0 +1,201 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/nwt/projects/tech_challenge_bsf/src/PS.Presentation/PS.Presentation.csproj": {}
+  },
+  "projects": {
+    "/home/nwt/projects/tech_challenge_bsf/src/PS.Domain/PS.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/nwt/projects/tech_challenge_bsf/src/PS.Domain/PS.Domain.csproj",
+        "projectName": "PS.Domain",
+        "projectPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Domain/PS.Domain.csproj",
+        "packagesPath": "/home/nwt/.nuget/packages/",
+        "outputPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/nwt/projects/tech_challenge_bsf/nuget.config",
+          "/home/nwt/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.135/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/nwt/projects/tech_challenge_bsf/src/PS.Presentation/PS.Presentation.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/nwt/projects/tech_challenge_bsf/src/PS.Presentation/PS.Presentation.csproj",
+        "projectName": "PS.Presentation",
+        "projectPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Presentation/PS.Presentation.csproj",
+        "packagesPath": "/home/nwt/.nuget/packages/",
+        "outputPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Presentation/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/nwt/projects/tech_challenge_bsf/nuget.config",
+          "/home/nwt/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/nwt/projects/tech_challenge_bsf/src/PS.Domain/PS.Domain.csproj": {
+                "projectPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Domain/PS.Domain.csproj"
+              },
+              "/home/nwt/projects/tech_challenge_bsf/src/PS.Services/PS.Services.csproj": {
+                "projectPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Services/PS.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Azure.Messaging.ServiceBus": {
+              "target": "Package",
+              "version": "[7.18.2, )"
+            },
+            "Microsoft.Extensions.Azure": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.135/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/nwt/projects/tech_challenge_bsf/src/PS.Services/PS.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/nwt/projects/tech_challenge_bsf/src/PS.Services/PS.Services.csproj",
+        "projectName": "PS.Services",
+        "projectPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Services/PS.Services.csproj",
+        "packagesPath": "/home/nwt/.nuget/packages/",
+        "outputPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Services/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/nwt/projects/tech_challenge_bsf/nuget.config",
+          "/home/nwt/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/nwt/projects/tech_challenge_bsf/src/PS.Domain/PS.Domain.csproj": {
+                "projectPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Domain/PS.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "automapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.135/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
