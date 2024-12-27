@@ -15,9 +15,6 @@ namespace PS.Services
 
         public async Task SendMessageAsync(string message)
         {
-            // Verificar se o nome da fila e a mensagem são válidos
-
-            // Criar um sender para a fila
             var sender = _serviceBusClient.CreateSender("payment_intent_queue");
 
             try

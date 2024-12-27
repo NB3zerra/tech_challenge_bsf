@@ -4,7 +4,7 @@ namespace PS.Domain.DTOs
 {
     public class PaymentIntentDto 
     {
-        public Guid Uuid { get; set; }
+        public Guid Uuid { get; set; } = Guid.NewGuid();
         public string? CustomerName { get; set; }
         public double? Amount { get; set; }
         public string? Description { get; set; }

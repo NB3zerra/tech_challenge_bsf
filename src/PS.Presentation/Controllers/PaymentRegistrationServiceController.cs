@@ -4,6 +4,7 @@ using PS.Services.Interfaces;
 using PS.Domain.DTOs.Requests;
 using PS.Domain.Entities;
 using AutoMapper;
+using PS.Domain.DTOs;
 
 namespace PS.Presentation.Controllers
 {
@@ -22,7 +23,7 @@ namespace PS.Presentation.Controllers
       }
 
       [HttpPost]
-      public async Task<IActionResult> RegisterPaymentIntent([FromBody] PaymentIntentEntity paymentIntent)
+      public async Task<IActionResult> RegisterPaymentIntent([FromBody] PaymentIntentDto paymentIntent)
       {
          try
          {

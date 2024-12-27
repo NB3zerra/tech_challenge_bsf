@@ -22,15 +22,11 @@ namespace PS.Services
             _messageSender = messageSender;
         }
 
-        public async Task<PaymentIntentStatus> RegisterPaymentIntent(PaymentIntentEntity paymentIntent)
+        public async Task<PaymentIntentStatus> RegisterPaymentIntent(PaymentIntentDto paymentIntent)
         {
-            var message = new PaymentIntentDto();
-
             paymentIntent.Status = PaymentIntentStatus.CREATED;
 
-            _mapper.Map(paymentIntent, message);
-
-            await _messageSender.SendMessageAsync(JsonSerializer.Serialize(message));
+            await _messageSender.SendMessageAsync(JsonSerializer.Serialize(paymentIntent));
 
             return PaymentIntentStatus.CREATED;
         }
