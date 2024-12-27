@@ -5,10 +5,10 @@ using PS.Services.Interfaces;
 
 namespace PS.Services
 {
-    public class ServiceBusMessageSender : IServiceBusMessageSender
+    public class ServiceBusMessageProducer : IServiceBusMessageSender
     {
         protected readonly ServiceBusClient _serviceBusClient;
-        public ServiceBusMessageSender(ServiceBusClient serviceBusClient)
+        public ServiceBusMessageProducer(ServiceBusClient serviceBusClient)
         {
             _serviceBusClient = serviceBusClient;
         }

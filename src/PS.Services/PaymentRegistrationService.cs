@@ -14,9 +14,9 @@ namespace PS.Services
     public class PaymentRegistrationService : IPaymentRegistrationService
     {
         protected readonly IMapper _mapper;
-        protected readonly ServiceBusMessageSender _messageSender;
+        protected readonly ServiceBusMessageProducer _messageSender;
 
-        public PaymentRegistrationService(IMapper mapper, ServiceBusMessageSender messageSender)
+        public PaymentRegistrationService(IMapper mapper, ServiceBusMessageProducer messageSender)
         {
             _mapper = mapper;
             _messageSender = messageSender;
@@ -25,6 +25,7 @@ namespace PS.Services
         public async Task<PaymentIntentStatus> RegisterPaymentIntent(PaymentIntentDto paymentIntent)
         {
             paymentIntent.Status = PaymentIntentStatus.CREATED;
+            paymentIntent.Uuid = Guid.NewGuid();
 
             await _messageSender.SendMessageAsync(JsonSerializer.Serialize(paymentIntent));
 
