@@ -57,6 +57,59 @@
         }
       }
     },
+    "/home/nwt/projects/tech_challenge_bsf/src/PS.Infrastructure/PS.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/nwt/projects/tech_challenge_bsf/src/PS.Infrastructure/PS.Infrastructure.csproj",
+        "projectName": "PS.Infrastructure",
+        "projectPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Infrastructure/PS.Infrastructure.csproj",
+        "packagesPath": "/home/nwt/.nuget/packages/",
+        "outputPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/nwt/projects/tech_challenge_bsf/nuget.config",
+          "/home/nwt/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.135/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/home/nwt/projects/tech_challenge_bsf/src/PS.Presentation/PS.Presentation.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -83,6 +136,9 @@
               "/home/nwt/projects/tech_challenge_bsf/src/PS.Domain/PS.Domain.csproj": {
                 "projectPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Domain/PS.Domain.csproj"
               },
+              "/home/nwt/projects/tech_challenge_bsf/src/PS.Infrastructure/PS.Infrastructure.csproj": {
+                "projectPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Infrastructure/PS.Infrastructure.csproj"
+              },
               "/home/nwt/projects/tech_challenge_bsf/src/PS.Services/PS.Services.csproj": {
                 "projectPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Services/PS.Services.csproj"
               }
@@ -106,6 +162,10 @@
             "Microsoft.Extensions.Azure": {
               "target": "Package",
               "version": "[1.9.0, )"
+            },
+            "Microsoft.Extensions.Configuration.AzureAppConfiguration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -159,6 +219,9 @@
             "projectReferences": {
               "/home/nwt/projects/tech_challenge_bsf/src/PS.Domain/PS.Domain.csproj": {
                 "projectPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Domain/PS.Domain.csproj"
+              },
+              "/home/nwt/projects/tech_challenge_bsf/src/PS.Infrastructure/PS.Infrastructure.csproj": {
+                "projectPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Infrastructure/PS.Infrastructure.csproj"
               }
             }
           }
@@ -173,6 +236,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Azure.Identity": {
+              "target": "Package",
+              "version": "[1.13.1, )"
+            },
+            "Azure.Messaging.ServiceBus": {
+              "target": "Package",
+              "version": "[7.18.2, )"
+            },
             "automapper": {
               "target": "Package",
               "version": "[13.0.1, )"

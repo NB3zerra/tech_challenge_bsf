@@ -2,10 +2,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PS.Domain\PS.Domain.csproj" />
+    <ProjectReference Include="..\PS.Infrastructure\PS.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="automapper" Version="13.0.1" />
+    <PackageReference Include="Azure.Identity" Version="1.13.1" />
+    <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.18.2" />
   </ItemGroup>
 
   <PropertyGroup>
