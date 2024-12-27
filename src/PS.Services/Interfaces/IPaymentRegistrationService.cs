@@ -1,10 +1,11 @@
 using PS.Domain.Common;
+using PS.Domain.DTOs;
 using PS.Domain.DTOs.Requests;
 using PS.Domain.Entities;
 namespace PS.Services.Interfaces
 {
     public interface IPaymentRegistrationService
     {
-        Task<PaymentIntentStatus> RegisterPaymentIntent(PaymentIntentEntity paymentIntent);
+        Task<PaymentIntentStatus> RegisterPaymentIntent(PaymentIntentDto paymentIntent);
     }
 }
