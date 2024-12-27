@@ -1,15 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 
 using PS.Services.Interfaces;
-using PS.Domain.DTOs.Requests;
-using PS.Domain.Entities;
 using AutoMapper;
 using PS.Domain.DTOs;
 
 namespace PS.Presentation.Controllers
 {
    [ApiController]
-   [Route("payment")]
+   [Route("paymentRegistration/")]
    public class PaymentRegistrationServiceController : ControllerBase
    {
       protected readonly IPaymentRegistrationService _service;

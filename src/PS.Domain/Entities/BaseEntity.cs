@@ -7,8 +7,8 @@ namespace PS.Domain.Entities
 
     public abstract class BaseEntity
     {
-        public Guid Uuid { get; set; } = Guid.NewGuid();
-        public DateTime CreatedAt { get; set; }
+        public Guid Uuid { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; }
 
     }

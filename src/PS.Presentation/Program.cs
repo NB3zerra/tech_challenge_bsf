@@ -40,10 +40,10 @@ void ConfigureServices(IServiceCollection services)
     {
         var configuration = provider.GetRequiredService<IConfiguration>();
         var serviceBusSettings = configuration.GetSection("SenderSharedAccessKey").Get<ServiceBusSettings>();
-        return new ServiceBusClient(serviceBusSettings.ConnectionString);
+        return new ServiceBusClient(serviceBusSettings!.ConnectionString);
     });
 
-    services.AddSingleton<ServiceBusMessageSender>();
+    services.AddSingleton<ServiceBusMessageProducer>();
     services.AddTransient<IPaymentRegistrationService, PaymentRegistrationService>();
 
     configAutoMapper(services);
