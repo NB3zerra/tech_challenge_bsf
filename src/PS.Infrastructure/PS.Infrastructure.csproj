@@ -10,4 +10,8 @@
     <PackageReference Include="Mongo.Migration" Version="3.1.4" />
     <PackageReference Include="MongoDb.Driver" Version="3.1.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PS.Domain\PS.Domain.csproj" />
+  </ItemGroup>
 </Project>

@@ -38,6 +38,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -79,7 +85,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/nwt/projects/tech_challenge_bsf/src/PS.Domain/PS.Domain.csproj": {
+                "projectPath": "/home/nwt/projects/tech_challenge_bsf/src/PS.Domain/PS.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

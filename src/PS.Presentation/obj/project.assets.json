@@ -1620,6 +1620,9 @@
       "PS.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MongoDB.Bson": "3.1.0"
+        },
         "compile": {
           "bin/placeholder/PS.Domain.dll": {}
         },
@@ -1632,7 +1635,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Mongo.Migration": "3.1.4",
-          "MongoDb.Driver": "3.1.0"
+          "MongoDb.Driver": "3.1.0",
+          "PS.Domain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/PS.Infrastructure.dll": {}
