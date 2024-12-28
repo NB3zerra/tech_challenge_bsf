@@ -3,9 +3,9 @@ using PS.Services;
 using PS.Infrastructure.Settings;
 using PS.Services.AutoMapper;
 using Azure.Messaging.ServiceBus;
-using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Serializers;
-using MongoDB.Bson;
+using MongoDB.Driver;
+using Microsoft.Extensions.Options;
+using PS.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,7 +39,35 @@ void ConfigureServices(IServiceCollection services)
 {
 
     services.Configure<CosmosDbSettings>(builder.Configuration.GetSection("CosmosDbSettings"));
-    BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
+
+    services.AddSingleton<IMongoClient>(
+        sp =>
+        {
+            var settings = sp.GetRequiredService<IOptions<CosmosDbSettings>>().Value;
+
+            if (string.IsNullOrWhiteSpace(settings.ConnectionString))
+            {
+                throw new ArgumentException("Connection string for MongoDB is not configured.");
+            }
+
+            return new MongoClient(settings.ConnectionString);
+        }
+    );
+
+    services.AddSingleton(
+        sp =>
+        {
+            var settings = sp.GetRequiredService<IOptions<CosmosDbSettings>>().Value;
+
+            if (string.IsNullOrWhiteSpace(settings.DatabaseName))
+            {
+                throw new ArgumentException("Database name for MongoDB is not configured.");
+            }
+
+            var client = sp.GetRequiredService<IMongoClient>();
+            return client.GetDatabase(settings.DatabaseName);
+        }
+    );
 
     services.AddSingleton(provider =>
     {
@@ -48,7 +76,7 @@ void ConfigureServices(IServiceCollection services)
         return new ServiceBusClient(serviceBusSettings!.ConnectionString);
     });
 
-    services.AddSingleton<AzureCosmosDbService>();
+    services.AddSingleton<PaymentRepository>();
     services.AddSingleton<PaymentProcessingService>();
     services.AddHostedService<ServiceBusMessageConsumer>();
 

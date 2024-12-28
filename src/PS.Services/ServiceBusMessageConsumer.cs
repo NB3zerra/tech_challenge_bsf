@@ -3,7 +3,6 @@ using AutoMapper;
 using Azure.Messaging.ServiceBus;
 using Microsoft.Extensions.Hosting;
 using PS.Domain.Entities;
-using PS.Services;
 
 namespace PS.Services
 {
@@ -45,7 +44,6 @@ namespace PS.Services
 
                 //atualizar no banco
                 await _paymentProcessingService.ProcessPaymentIntent(PaymentIntentEntity);
-                
                 Console.WriteLine($"Payment Intent Entity: {JsonSerializer.Serialize(PaymentIntentEntity)}");
             }
             finally

@@ -5,21 +5,18 @@ using PS.Domain.Common;
 using PS.Infrastructure.Settings;
 using PS.Services.Interfaces;
 using Microsoft.Extensions.Options;
+using PS.Infrastructure.Interfaces;
+using PS.Infrastructure.Repositories;
 
 namespace PS.Services
 {
     public class PaymentProcessingService : IPaymentProcessingService
     {
 
-        private readonly AzureCosmosDbService _cosmosDbService;
-        private readonly string _collectionName;
-
-        public PaymentProcessingService(AzureCosmosDbService azureCosmosDbService, IOptions<CosmosDbSettings> azureCosmosDbSettings)
+        protected readonly PaymentRepository _repository; 
+        public PaymentProcessingService(PaymentRepository repository)
         {
-            _cosmosDbService = azureCosmosDbService;
-            _collectionName = azureCosmosDbSettings.Value.CollectionName!;
-
-            Console.WriteLine(JsonSerializer.Serialize(azureCosmosDbSettings.Value));
+            _repository = repository;
         }
         public PaymentIntentDto? DeserializePaymentIntentMessage(string message)
         {
@@ -32,7 +29,7 @@ namespace PS.Services
             {
                 paymentIntent.Status = PaymentIntentStatus.OK;
                 paymentIntent.UpdatedAt = DateTime.Now;
-                await SavePaymentIntentAsync(paymentIntent);
+                await _repository.SavePaymentIntentAsync(paymentIntent);
             }
             catch (Exception e)
             {
@@ -40,10 +37,13 @@ namespace PS.Services
             }
         }
 
-        private async Task SavePaymentIntentAsync(PaymentIntentEntity paymentIntent)
+        public async Task<PaymentIntentStatus> GetPaymentIntentStatusAsync(Guid paymentIntentId)
         {
-            var collection = _cosmosDbService.GetCollection<PaymentIntentEntity>(_collectionName);
-            await collection.InsertOneAsync(paymentIntent);
+            var paymentIntent = await _repository.GetByIdAsync(paymentIntentId);
+            if (paymentIntent == null)
+                throw new KeyNotFoundException($"PaymentIntent with ID {paymentIntentId} not found.");
+
+            return paymentIntent.Status;
         }
     }
 }
