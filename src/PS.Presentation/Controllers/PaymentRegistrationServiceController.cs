@@ -25,14 +25,19 @@ namespace PS.Presentation.Controllers
       {
          try
          {
+            if (paymentIntent.Amount <= 0) throw new ArgumentException($"'Amount' cant be 0 or negative");
+
             await _service.RegisterPaymentIntent(paymentIntent);
 
             return CreatedAtAction(nameof(RegisterPaymentIntent), new { id = paymentIntent.Uuid }, paymentIntent.Uuid);
          }
-         catch (System.Exception e)
+         catch (ArgumentException ex)
          {
-            Console.WriteLine(e.Message);
-            throw;
+            return BadRequest(new { Message = "Invalid input.", Details = ex.Message });
+         }
+         catch (Exception ex)
+         {
+            return StatusCode(500, new { Message = "An error occurred.", Details = ex.Message });
          }
 
       }

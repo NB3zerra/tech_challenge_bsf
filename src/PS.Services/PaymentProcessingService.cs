@@ -37,7 +37,7 @@ namespace PS.Services
             }
         }
 
-        public async Task<PaymentIntentStatus> GetPaymentIntentStatusAsync(Guid paymentIntentId)
+        public async Task<PaymentIntentStatus?> GetPaymentIntentStatusAsync(Guid paymentIntentId)
         {
             var paymentIntent = await _repository.GetByIdAsync(paymentIntentId);
             if (paymentIntent == null)

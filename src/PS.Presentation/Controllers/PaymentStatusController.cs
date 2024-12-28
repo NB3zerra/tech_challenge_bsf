@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using PS.Services;
+using PS.Services.Interfaces;
 
 namespace PS.Presentation.Controllers
 {
@@ -7,10 +7,10 @@ namespace PS.Presentation.Controllers
     [Route("api/[controller]")]
     public class PaymentStatusController : ControllerBase
     {
-        protected readonly PaymentProcessingService _paymentProcessingService;
+        protected readonly IPaymentProcessingService _paymentProcessingService;
 
-        public PaymentStatusController(PaymentProcessingService paymentProcessingService)
-        {   
+        public PaymentStatusController(IPaymentProcessingService paymentProcessingService)
+        {
             _paymentProcessingService = paymentProcessingService;
         }
 
@@ -20,11 +20,13 @@ namespace PS.Presentation.Controllers
             try
             {
                 var status = await _paymentProcessingService.GetPaymentIntentStatusAsync(paymentIntentId);
+
                 return Ok(new { PaymentIntentId = paymentIntentId, Status = status });
+
             }
             catch (KeyNotFoundException ex)
             {
-                return NotFound(new { Message = ex.Message });
+                return StatusCode(404, new { Message = "Not Found", Details = ex.Message });
             }
             catch (Exception ex)
             {

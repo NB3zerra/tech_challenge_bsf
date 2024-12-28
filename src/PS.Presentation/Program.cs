@@ -92,7 +92,7 @@ void ConfigureServices(IServiceCollection services)
     services.AddSingleton<ServiceBusMessageProducer>();
 
     services.AddSingleton<PaymentRepository>();
-    services.AddSingleton<PaymentProcessingService>();
+    services.AddSingleton<IPaymentProcessingService, PaymentProcessingService>();
     services.AddTransient<IPaymentRegistrationService, PaymentRegistrationService>();
 
     configAutoMapper(services);
