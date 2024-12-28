@@ -8,6 +8,6 @@ namespace PS.Services.Interfaces
     {
         PaymentIntentDto? DeserializePaymentIntentMessage(string message);
         Task ProcessPaymentIntent(PaymentIntentEntity paymentIntent);
-        Task<PaymentIntentStatus> GetPaymentIntentStatusAsync(Guid paymentIntentId);
+        Task<PaymentIntentStatus?> GetPaymentIntentStatusAsync(Guid paymentIntentId);
     }
 }

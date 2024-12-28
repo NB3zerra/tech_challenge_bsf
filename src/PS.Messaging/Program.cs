@@ -6,6 +6,8 @@ using Azure.Messaging.ServiceBus;
 using MongoDB.Driver;
 using Microsoft.Extensions.Options;
 using PS.Infrastructure.Repositories;
+using PS.Services.Interfaces;
+using PS.Infrastructure.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -77,7 +79,7 @@ void ConfigureServices(IServiceCollection services)
     });
 
     services.AddSingleton<PaymentRepository>();
-    services.AddSingleton<PaymentProcessingService>();
+    services.AddSingleton<IPaymentProcessingService, PaymentProcessingService>();
     services.AddHostedService<ServiceBusMessageConsumer>();
 
     configAutoMapper(services);

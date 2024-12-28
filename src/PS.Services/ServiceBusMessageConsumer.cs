@@ -3,6 +3,7 @@ using AutoMapper;
 using Azure.Messaging.ServiceBus;
 using Microsoft.Extensions.Hosting;
 using PS.Domain.Entities;
+using PS.Services.Interfaces;
 
 namespace PS.Services
 {
@@ -10,14 +11,14 @@ namespace PS.Services
     {
         protected readonly ServiceBusClient _serviceBusClient;
         protected readonly IHostApplicationLifetime _hostApplicationLifetime;
-        protected readonly PaymentProcessingService _paymentProcessingService;
+        protected readonly IPaymentProcessingService _paymentProcessingService;
         protected readonly IMapper _mapper;
         private ServiceBusProcessor ServiceBusProcessor { get; set; }
         private PaymentIntentEntity PaymentIntentEntity { get; set; } = new();
 
         public ServiceBusMessageConsumer(
             IHostApplicationLifetime hostApplicationLifetime,
-            PaymentProcessingService paymentProcessigService,
+            IPaymentProcessingService paymentProcessigService,
             IMapper mapper,
             ServiceBusClient client
         )
