@@ -13,7 +13,7 @@ namespace PS.Services
         protected readonly PaymentProcessingService _paymentProcessingService;
         protected readonly IMapper _mapper;
         private ServiceBusProcessor ServiceBusProcessor { get; set; }
-        private PaymentIntentEntity PaymentIntentEntity { get; set; } = new ();
+        private PaymentIntentEntity PaymentIntentEntity { get; set; } = new();
 
         public ServiceBusMessageConsumer(
             IHostApplicationLifetime hostApplicationLifetime,
@@ -36,6 +36,11 @@ namespace PS.Services
 
             try
             {
+                // Simular um erro randômico
+                if (new Random().Next(0, 2) == 0) // 50% de chance de erro
+                {
+                    throw new Exception("Erro randômico simulado no processamento.");
+                }
                 //deserializar a mensagem
                 var paymentIntentMessageDto = _paymentProcessingService.DeserializePaymentIntentMessage(body);
 
@@ -45,10 +50,13 @@ namespace PS.Services
                 //atualizar no banco
                 await _paymentProcessingService.ProcessPaymentIntent(PaymentIntentEntity);
                 Console.WriteLine($"Payment Intent Entity: {JsonSerializer.Serialize(PaymentIntentEntity)}");
-            }
-            finally
-            {
+
+                // Confirmar mensagem como processada
                 await args.CompleteMessageAsync(args.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao processar mensagem: {ex.Message}");
             }
         }
 
@@ -63,13 +71,13 @@ namespace PS.Services
             try
             {
                 if (ServiceBusProcessor != null)
-                    {
-                        ServiceBusProcessor.ProcessMessageAsync += MessageHandler;
+                {
+                    ServiceBusProcessor.ProcessMessageAsync += MessageHandler;
 
-                        ServiceBusProcessor.ProcessErrorAsync += ErrorHandler;
+                    ServiceBusProcessor.ProcessErrorAsync += ErrorHandler;
 
-                        await ServiceBusProcessor.StartProcessingAsync();
-                    }
+                    await ServiceBusProcessor.StartProcessingAsync();
+                }
             }
             catch (Exception ex)
             {
